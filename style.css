@@ -21,3 +21,83 @@ body {
     gap: 40px;
     color: #fff;
 }
+
+#time .circle {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#time .circle svg {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    /* elforgatja a karika színezését ennyi fokkal */
+    transform: rotate(270deg);
+}
+
+#time .circle svg circle {
+    width: 100%;
+    height: 100%;
+    fill: transparent;
+    /* ez színezi be a kört */
+    stroke: #191919;
+    stroke-width: 4;
+    /* ez pozícionál és rendesen a boxba teszi */
+    transform: translate(5px, 5px);
+}
+
+#time .circle svg circle:nth-child(2){
+    stroke: var(--clr);
+    /* a karika mekkora része legyen színezett. max érték 440 ( 2 * r * pi) */
+    stroke-dasharray: 440;
+}
+
+#time div {
+    position: absolute;
+    text-align: center;
+    font-weight: 500;
+    font-size: 1.5em;
+
+}
+
+#time div span {
+    position: absolute;
+    transform: translateX(-50%) translateY(-10px);
+    font-size: 0.35em;
+    font-weight: 300;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+#time .ap {
+    position: relative;
+    font-size: 1em;
+    transform: translateX(-20px);
+
+}
+
+.dots {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.dots::before {
+    content: '';
+    position: absolute;
+    top: -3px;
+    width: 15px;
+    height: 15px;
+    background-color: var(--clr);
+    border-radius: 50%;
+    /* foszforeszkáló hatás */
+    box-shadow: 0 0 20px var(--clr), 0 0 60px var(--clr);
+}

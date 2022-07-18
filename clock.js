@@ -20,9 +20,20 @@ function clock() {
     m = (m < 10) ? "0" + m : m;
     s = (s < 10) ? "0" + s : s;
 
-    let hours = document.getElementById('hours').innerHTML = h;
-    let minutes = document.getElementById('minutes').innerHTML = m;
-    let seconds = document.getElementById('seconds').innerHTML = s;
+    let hours = document.getElementById('hours').innerHTML = h + "<br><span>Hours</span>";
+    let minutes = document.getElementById('minutes').innerHTML = m + "<br><span>Minutes</span>";
+    let seconds = document.getElementById('seconds').innerHTML = s + "<br><span>Seconds</span>";
     let amPm = document.getElementById('ampm').innerHTML = new Date().getHours() >= 12 ? "PM" : "AM";
+
+    let hh = document.getElementById('hh').style.strokeDashoffset = 440 - (440 * h) / 12;
+    let mm = document.getElementById('mm').style.strokeDashoffset = 440 - (440 * m) / 60;
+    let ss = document.getElementById('ss').style.strokeDashoffset = 440 - (440 * s) / 60;
+
+    // fok / max óra (am esetében 12) = rotate vagyis 360 / 12 = 30
+    let hr_dot = document.querySelector('.hr_dot').style.transform = `rotate(${h * 30}deg)`;
+    let min_dot = document.querySelector('.min_dot').style.transform = `rotate(${m * 6}deg)`;
+    let sec_dot = document.querySelector('.sec_dot').style.transform = `rotate(${s * 6}deg)`;
+
+    
 
 }
