@@ -66,6 +66,7 @@ body {
 
 #time div span {
     position: absolute;
+    padding: 13px;
     transform: translateX(-50%) translateY(-10px);
     font-size: 0.35em;
     font-weight: 300;
