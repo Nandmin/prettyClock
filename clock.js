@@ -10,11 +10,23 @@ function clock() {
     let s = new Date().getSeconds();
     let am =  new Date().getHours() >= 12 ? "PM" : "AM";
 
-    // Convert time to AM/PM
-    if (h > 12) 
-        {
-            h  = h - 12;
-        }
+    let hide = document.getElementById('timeFormat').innerText
+    document.getElementById('timeFormat').style.display = 'none';
+
+    if (hide == 24) {
+        document.getElementById('ampm').style.display = 'none';
+        let hh = document.getElementById('hh').style.strokeDashoffset = 440 - (440 * h) / 24;
+    }
+    else
+    {
+        // Convert time to AM/PM
+        if (h > 12) 
+            {
+                h  = h - 12;
+            }
+            document.getElementById('ampm').style.display = 'flex';
+            let hh = document.getElementById('hh').style.strokeDashoffset = 440 - (440 * h) / 12;
+    }
 
     h = (h < 10) ? "0" + h : h;
     m = (m < 10) ? "0" + m : m;
@@ -25,7 +37,6 @@ function clock() {
     let seconds = document.getElementById('seconds').innerHTML = s + "<br><span>Seconds</span>";
     let amPm = document.getElementById('ampm').innerHTML = new Date().getHours() >= 12 ? "PM" : "AM";
 
-    let hh = document.getElementById('hh').style.strokeDashoffset = 440 - (440 * h) / 12;
     let mm = document.getElementById('mm').style.strokeDashoffset = 440 - (440 * m) / 60;
     let ss = document.getElementById('ss').style.strokeDashoffset = 440 - (440 * s) / 60;
 
