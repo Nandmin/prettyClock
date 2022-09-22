@@ -9,13 +9,17 @@ function clock() {
     let m = new Date().getMinutes();
     let s = new Date().getSeconds();
     let am =  new Date().getHours() >= 12 ? "PM" : "AM";
-
+    
     let hide = document.getElementById('timeFormat').innerText
     document.getElementById('timeFormat').style.display = 'none';
-
+    
+        let hh = document.getElementById('hh').style.strokeDashoffset = 440 - (440 * h) / 60;
+        let mm = document.getElementById('mm').style.strokeDashoffset = 440 - (440 * m) / 60;
+        let ss = document.getElementById('ss').style.strokeDashoffset = 440 - (440 * s) / 60;
+    
     if (hide == 24) {
         document.getElementById('ampm').style.display = 'none';
-        let hh = document.getElementById('hh').style.strokeDashoffset = 440 - (440 * h) / 24;
+        let hh = document.getElementById('hh').style.strokeDashoffset = 440 - (440 * h) / 60;
     }
     else
     {
@@ -36,10 +40,6 @@ function clock() {
     let minutes = document.getElementById('minutes').innerHTML = m + "<br><span>Minutes</span>";
     let seconds = document.getElementById('seconds').innerHTML = s + "<br><span>Seconds</span>";
     let amPm = document.getElementById('ampm').innerHTML = new Date().getHours() >= 12 ? "PM" : "AM";
-
-    let hh = document.getElementById('hh').style.strokeDashoffset = 440 - (440 * m) / 12;
-    let mm = document.getElementById('mm').style.strokeDashoffset = 440 - (440 * m) / 60;
-    let ss = document.getElementById('ss').style.strokeDashoffset = 440 - (440 * s) / 60;
 
     // fok / max óra (am esetében 12) = rotate vagyis 360 / 12 = 30
     let hr_dot = document.querySelector('.hr_dot').style.transform = `rotate(${h * 30}deg)`;
