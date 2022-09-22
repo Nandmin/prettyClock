@@ -37,6 +37,7 @@ function clock() {
     let seconds = document.getElementById('seconds').innerHTML = s + "<br><span>Seconds</span>";
     let amPm = document.getElementById('ampm').innerHTML = new Date().getHours() >= 12 ? "PM" : "AM";
 
+    let hh = document.getElementById('hh').style.strokeDashoffset = 440 - (440 * m) / 12;
     let mm = document.getElementById('mm').style.strokeDashoffset = 440 - (440 * m) / 60;
     let ss = document.getElementById('ss').style.strokeDashoffset = 440 - (440 * s) / 60;
 
